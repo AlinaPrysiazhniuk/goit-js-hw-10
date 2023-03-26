@@ -13,7 +13,7 @@ const refs = {
 const enterDataSearchCountry = event => {
   event.preventDefault();
 
-  const seekedCountry = refs.inputSearchBox.value;
+  const seekedCountry = refs.inputSearchBox.value.trim();
   console.log(seekedCountry);
   fetchCountries(seekedCountry);
 };
