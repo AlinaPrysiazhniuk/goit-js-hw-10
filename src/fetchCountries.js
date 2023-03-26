@@ -1,6 +1,7 @@
 import Notiflix from 'notiflix';
 import { renderMarkupCountries } from './index';
 import { renderMarkupListCountries } from './index';
+import { refs } from './index';
 
 const BASE_URL = 'https://restcountries.com/v3.1/name';
 
@@ -21,8 +22,10 @@ export const fetchCountries = name =>
         );
       } else if (data.length >= 2 && data.length <= 10) {
         //якщо кількість країн від 2 до 10 то створити список із країн
+        refs.countryInfo.innerHTML = '';
         renderMarkupListCountries(data);
       } else {
+        refs.countryList.innerHTML = '';
         renderMarkupCountries(data);
         //якщо кількість країн === 1 - вивести картку з інформацією про країну
       }

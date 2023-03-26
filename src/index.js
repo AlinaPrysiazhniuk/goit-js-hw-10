@@ -4,7 +4,7 @@ import debounce from 'lodash.debounce';
 
 const DEBOUNCE_DELAY = 300;
 
-const refs = {
+export const refs = {
   inputSearchBox: document.querySelector('#search-box'),
   countryList: document.querySelector('.country-list'),
   countryInfo: document.querySelector('.country-info'),
@@ -14,28 +14,42 @@ const enterDataSearchCountry = event => {
   event.preventDefault();
 
   const seekedCountry = refs.inputSearchBox.value.trim();
-  console.log(seekedCountry);
+  if (!seekedCountry) {
+    refs.countryInfo.innerHTML = '';
+    refs.countryList.innerHTML = '';
+    return;
+  }
+
   fetchCountries(seekedCountry);
 };
 
 refs.inputSearchBox.addEventListener(
   'input',
-  debounce(enterDataSearchCountry, 300)
+  debounce(enterDataSearchCountry, DEBOUNCE_DELAY)
 );
 
 function createCountryInfo({ name, capital, population, flags, languages }) {
-  const countryEl = `<div>
-  <img src='${flags.svg}' alt='${name}' width='40' height='40'>
-  <p>${name.official}</p>
-  <p>Capital:${capital}</p><p>Population:${population}</p><p>${languages}</p></div>`;
+  const countryEl = `<div class="country-flag">
+      <img src='${flags.svg}' alt='${name}' width='40' height='40'>
+      <p class="country-name">${name.official}</p>
+  </div>
+    <ul class="country-list">
+      <li class="country-item"><b>Capital: </b><span class="country-capital">${capital}</span></li>
+   <li class="country-item"><b>Population: </b><span class="country-population">${population}</span></li>
+    <li class="country-item"><b>Languages: </b><span class="country-languages">${Object.values(
+      languages
+    )}</span></li>
+  </ul>`;
   refs.countryInfo.insertAdjacentHTML('beforeend', countryEl);
 }
 
 function createCountryList({ name, flags }) {
-  const countryElItem = `<ul>
-  <img src='${flags.svg}' alt='${name}' width='40' height='40'>
-  <p>${name.official}</p></ul>`;
-  refs.countryList.insertAdjacentHTML('beforeend', countryElItem);
+  const countryEl = `
+  <li>
+      <img src='${flags.svg}' alt='${name}' width='40' height='20'>
+      <p class="country-name">${name.official}</p>
+  </li>`;
+  refs.countryList.insertAdjacentHTML('beforeend', countryEl);
 }
 
 export const renderMarkupListCountries = array => {
