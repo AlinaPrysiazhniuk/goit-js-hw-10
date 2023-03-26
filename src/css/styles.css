@@ -15,6 +15,7 @@ body {
 #search-box {
   font: inherit;
   padding: 8px;
+  padding-left: 10px;
   max-width: 320px;
   margin-bottom: 16px;
 }
@@ -27,7 +28,7 @@ p {
 ul {
   list-style: none;
   margin: 0;
-  padding-left: 70;
+  padding-left: 70px;
 }
 
 .country-flag {
@@ -37,9 +38,14 @@ ul {
   margin-bottom: 16px;
 }
 
+.country-list-info {
+  padding-left: 5px;
+}
+
 .country-item {
   font-weight: 800;
-  font-size: 14px;
+  font-size: 18px;
+  padding-bottom: 5px;
 }
 
 .country-name {
@@ -50,6 +56,14 @@ ul {
 .country-capital,
 .country-population,
 .country-languages {
+  font-weight: 500;
+}
+
+.country-list-item {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding-bottom: 10px;
   font-weight: 500;
 }
 

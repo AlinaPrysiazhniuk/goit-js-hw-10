@@ -34,21 +34,22 @@ function createCountryInfo({ name, capital, population, flags, languages }) {
       <p class="country-name">${name.official}</p>
   </div>
     <ul class="country-list">
-      <li class="country-item">Capital: <span class="country-capital">${capital}</span></li>
-   <li class="country-item">Population: <span class="country-population">${population}</span></li>
-    <li class="country-item">Languages: <span class="country-languages">${Object.values(
-      languages
-    )}</span></li>
+        <li class="country-item">Capital: <span class="country-capital">${capital}</span></li>
+        <li class="country-item">Population: <span class="country-population">${population}</span></li>
+        <li class="country-item">Languages: <span class="country-languages">${Object.values(
+          languages
+        )}</span></li>
   </ul>`;
   refs.countryInfo.insertAdjacentHTML('beforeend', countryEl);
 }
 
 function createCountryList({ name, flags }) {
-  const countryEl = `
-  <li>
+  const countryEl = `<ul class="country-list-info">
+  <li class="country-list-item">
       <img src='${flags.svg}' alt='${name}' width='600' height='20'>
-      <p class="country-name">${name.official}</p>
-  </li>`;
+      <p class="country-name-list">${name.official}</p>
+  </li>
+  </ul>`;
   refs.countryList.insertAdjacentHTML('beforeend', countryEl);
 }
 
