@@ -22,3 +22,26 @@ refs.inputSearchBox.addEventListener(
   'input',
   debounce(enterDataSearchCountry, 300)
 );
+
+function createCountryInfo({ name, capital, population, flags, languages }) {
+  const countryEl = `<div>
+  <img src='${flags.svg}' alt='${name}' width='40' height='40'>
+  <p>${name.official}</p>
+  <p>Capital:${capital}</p><p>Population:${population}</p><p>${languages}</p></div>`;
+  refs.countryInfo.insertAdjacentHTML('beforeend', countryEl);
+}
+
+function createCountryList({ name, flags }) {
+  const countryElItem = `<ul>
+  <img src='${flags.svg}' alt='${name}' width='40' height='40'>
+  <p>${name.official}</p></ul>`;
+  refs.countryList.insertAdjacentHTML('beforeend', countryElItem);
+}
+
+export const renderMarkupListCountries = array => {
+  array.forEach(item => createCountryList(item));
+};
+
+export const renderMarkupCountries = array => {
+  array.forEach(el => createCountryInfo(el));
+};
