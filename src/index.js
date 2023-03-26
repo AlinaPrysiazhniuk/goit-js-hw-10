@@ -34,9 +34,9 @@ function createCountryInfo({ name, capital, population, flags, languages }) {
       <p class="country-name">${name.official}</p>
   </div>
     <ul class="country-list">
-      <li class="country-item"><b>Capital: </b><span class="country-capital">${capital}</span></li>
-   <li class="country-item"><b>Population: </b><span class="country-population">${population}</span></li>
-    <li class="country-item"><b>Languages: </b><span class="country-languages">${Object.values(
+      <li class="country-item">Capital: <span class="country-capital">${capital}</span></li>
+   <li class="country-item">Population: <span class="country-population">${population}</span></li>
+    <li class="country-item">Languages: <span class="country-languages">${Object.values(
       languages
     )}</span></li>
   </ul>`;
@@ -46,7 +46,7 @@ function createCountryInfo({ name, capital, population, flags, languages }) {
 function createCountryList({ name, flags }) {
   const countryEl = `
   <li>
-      <img src='${flags.svg}' alt='${name}' width='40' height='20'>
+      <img src='${flags.svg}' alt='${name}' width='600' height='20'>
       <p class="country-name">${name.official}</p>
   </li>`;
   refs.countryList.insertAdjacentHTML('beforeend', countryEl);

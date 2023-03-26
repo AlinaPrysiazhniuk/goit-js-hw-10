@@ -23,9 +23,11 @@ export const fetchCountries = name =>
       } else if (data.length >= 2 && data.length <= 10) {
         //якщо кількість країн від 2 до 10 то створити список із країн
         refs.countryInfo.innerHTML = '';
+        refs.countryList.innerHTML = '';
         renderMarkupListCountries(data);
       } else {
         refs.countryList.innerHTML = '';
+        refs.countryInfo.innerHTML = '';
         renderMarkupCountries(data);
         //якщо кількість країн === 1 - вивести картку з інформацією про країну
       }
