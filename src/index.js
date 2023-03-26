@@ -30,7 +30,7 @@ refs.inputSearchBox.addEventListener(
 
 function createCountryInfo({ name, capital, population, flags, languages }) {
   const countryEl = `<div class="country-flag">
-      <img src='${flags.svg}' alt='${name}' width='40' height='40'>
+      <img src='${flags.svg}' alt='${name}'>
       <p class="country-name">${name.official}</p>
   </div>
     <ul class="country-list">
@@ -46,7 +46,7 @@ function createCountryInfo({ name, capital, population, flags, languages }) {
 function createCountryList({ name, flags }) {
   const countryEl = `<ul class="country-list-info">
   <li class="country-list-item">
-      <img src='${flags.svg}' alt='${name}' width='600' height='20'>
+      <img src='${flags.svg}' alt='${name}'>
       <p class="country-name-list">${name.official}</p>
   </li>
   </ul>`;
