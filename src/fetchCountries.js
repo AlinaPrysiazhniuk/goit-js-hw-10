@@ -33,3 +33,5 @@ export const fetchCountries = name =>
         throw new Error(error.status);
       }
     });
+
+//задача
